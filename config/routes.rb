@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # root "articles#index"
-  # get 'articles/index'
+  get '/students/:student_id/articles', to: "articles#myArticles", as: 'my_articles'
   # get 'articles/new'
   # get 'articles/create'
   # get 'articles/show'
