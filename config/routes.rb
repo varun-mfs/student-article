@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :students, :controllers => {:registrations => "registrations"}
+  # root "articles#index"
+  # get 'articles/index'
+  # get 'articles/new'
+  # get 'articles/create'
+  # get 'articles/show'
+  # get 'articles/edit'
+  # get 'articles/update'
+  # get 'articles/destroy'
+  devise_for :students, controllers: {registrations: "registrations"}
+  
+  resources :articles
+  resources :students do
+    resources :articles
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
