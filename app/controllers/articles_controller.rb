@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @comments = @article.comments
   end
   
   
@@ -43,7 +44,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    if @article.delete
+    if @article.destroy
       flash[:errors] = 'Article Deleted Successfully'
       redirect_to root_path(@article)
     else

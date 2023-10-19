@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
   # root "articles#index"
   get '/students/:student_id/articles', to: "articles#myArticles", as: 'my_articles'
-  # get 'articles/new'
-  # get 'articles/create'
-  # get 'articles/show'
-  # get 'articles/edit'
-  # get 'articles/update'
-  # get 'articles/destroy'
+
   devise_for :students, controllers: {registrations: "registrations"}
   
   resources :articles
   resources :students do
     resources :articles
+  end
+
+  resources :articles do
+    resources :comments
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
