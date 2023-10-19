@@ -1,6 +1,6 @@
 <%= render 'custom/header'%> 
 
-<div class="flex-column">
+<div class="d-flex justify-content-center">
   <div class="card shadow" style="width: 36rem;">
     <div class="card-header">
       <h2 class="text-center">Article Form</h2>
@@ -13,12 +13,14 @@
         <% end %>
       <% end %>
       <!-- Form Started Here -->
-      <%= form_with(model: @article, url: articles_path) do |f| %>
+      <%= form_with(model: @article, local: true, url: articles_path) do |f| %>
         <%= f.label :title, "Title :", class:"mt-3" %>
         <%= f.text_field :title ,placeholder: "Enter Article's Title",class:"mb-2 form-control" %>
-        <br>
-        <%= f.label :body, "Body :", class:"mt-3" %>
+        <%= f.label :body, "Body :", class: "mt-3" %>
         <%= f.text_field :body ,placeholder: "Enter Article's Body",class:"mb-2 form-control" %>
+        <br>
+        <%= f.file_field :image %>
+        <br>
         <br>
         <!-- Radio Button For Status -->
         <div class="form-group">
@@ -29,7 +31,7 @@
           <%= f.label :status, "Draft" %>
         </div>
         <br>
-        <%= f.submit "Save Article", class:"btn-primary border-0 rounded-pill shadow p-3" %>
+        <%= f.submit "Save Article", class:"btn btn-primary border-0 rounded-pill" %>
       <% end %>
     </div>
   </div>

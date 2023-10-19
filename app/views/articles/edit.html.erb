@@ -1,10 +1,10 @@
 <%= render 'custom/header'%> 
 
 
-<div class="flex-column">
+<div class="d-flex justify-content-center">
   <div class="card shadow" style="width: 36rem;">
     <div class="card-header">
-      <h2 class="text-center">Article Edit Form</h2>
+      <h2 class="text-center">Edit Article</h2>
     </div>
     <div class="card-body">
       <!--Error Message-->
@@ -30,7 +30,7 @@
           <%= f.label :status, "Draft" %>
         </div>
         <br>
-        <%= f.submit "Save Article", class:"btn-primary border-0 rounded-pill shadow p-3" %>
+        <%= f.submit "Save Article", class:"btn btn-primary rounded-pill" %>
       <% end %>
     </div>
   </div>
